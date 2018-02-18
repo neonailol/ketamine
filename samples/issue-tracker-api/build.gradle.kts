@@ -5,6 +5,10 @@ plugins {
     kotlin("jvm")
 }
 
+application {
+    mainClassName = "nnl.rocks.ketamine.samples.MainKt"
+}
+
 dependencies {
     compile(project(":modules:ketamine-models"))
     compile(kotlin("stdlib-jdk8"))
