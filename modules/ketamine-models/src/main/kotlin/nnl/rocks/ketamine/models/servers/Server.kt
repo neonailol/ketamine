@@ -1,4 +1,4 @@
-package nnl.rocks.ketamine.openapi.models.servers
+package nnl.rocks.ketamine.models.servers
 
 /**
  * Server
@@ -15,3 +15,4 @@ class Server(
 
 }
 
+class Servers : ArrayList<Server>()

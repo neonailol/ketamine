@@ -1,4 +1,4 @@
-package nnl.rocks.ketamine.openapi.models.security
+package nnl.rocks.ketamine.models.security
 
 /**
  * SecurityScheme

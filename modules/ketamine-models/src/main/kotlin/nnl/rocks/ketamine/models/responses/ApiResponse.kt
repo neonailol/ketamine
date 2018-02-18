@@ -1,8 +1,8 @@
-package nnl.rocks.ketamine.openapi.models.responses
+package nnl.rocks.ketamine.models.responses
 
 import nnl.rocks.ketamine.models.headers.Header
 import nnl.rocks.ketamine.models.links.Link
-import nnl.rocks.ketamine.openapi.models.media.Content
+import nnl.rocks.ketamine.models.media.Content
 
 /**
  * ApiResponse

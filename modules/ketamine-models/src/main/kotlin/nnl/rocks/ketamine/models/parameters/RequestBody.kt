@@ -1,6 +1,6 @@
-package nnl.rocks.ketamine.openapi.models.parameters
+package nnl.rocks.ketamine.models.parameters
 
-import nnl.rocks.ketamine.openapi.models.media.Content
+import nnl.rocks.ketamine.models.media.Content
 
 /**
  * RequestBody

@@ -1,7 +1,6 @@
-package nnl.rocks.ketamine.openapi.models.media
+package nnl.rocks.ketamine.models.media
 
 import java.util.LinkedHashMap
-import java.util.Objects
 
 /**
  * Content

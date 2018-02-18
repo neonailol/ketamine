@@ -1,7 +1,6 @@
-package nnl.rocks.ketamine.openapi.models.servers
+package nnl.rocks.ketamine.models.servers
 
 import java.util.LinkedHashMap
-import java.util.Objects
 
 /**
  * ServerVariables

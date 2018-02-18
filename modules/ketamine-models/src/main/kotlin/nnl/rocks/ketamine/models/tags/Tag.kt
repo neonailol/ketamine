@@ -1,4 +1,4 @@
-package nnl.rocks.ketamine.openapi.models.tags
+package nnl.rocks.ketamine.models.tags
 
 import nnl.rocks.ketamine.models.ExternalDocumentation
 
@@ -17,3 +17,4 @@ class Tag(
 
 }
 
+class Tags : ArrayList<Tag>()

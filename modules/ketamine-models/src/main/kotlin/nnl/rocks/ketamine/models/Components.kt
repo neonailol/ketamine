@@ -4,11 +4,11 @@ import nnl.rocks.ketamine.models.callbacks.Callback
 import nnl.rocks.ketamine.models.examples.Example
 import nnl.rocks.ketamine.models.headers.Header
 import nnl.rocks.ketamine.models.links.Link
-import nnl.rocks.ketamine.openapi.models.media.Schema
-import nnl.rocks.ketamine.openapi.models.parameters.Parameter
-import nnl.rocks.ketamine.openapi.models.parameters.RequestBody
-import nnl.rocks.ketamine.openapi.models.responses.ApiResponse
-import nnl.rocks.ketamine.openapi.models.security.SecurityScheme
+import nnl.rocks.ketamine.models.media.Schema
+import nnl.rocks.ketamine.models.parameters.Parameter
+import nnl.rocks.ketamine.models.parameters.RequestBody
+import nnl.rocks.ketamine.models.responses.ApiResponse
+import nnl.rocks.ketamine.models.security.SecurityScheme
 
 /**
  * Components

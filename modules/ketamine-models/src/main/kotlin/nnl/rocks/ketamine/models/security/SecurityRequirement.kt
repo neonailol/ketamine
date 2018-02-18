@@ -1,4 +1,4 @@
-package nnl.rocks.ketamine.openapi.models.security
+package nnl.rocks.ketamine.models.security
 
 import java.util.LinkedHashMap
 
@@ -10,3 +10,4 @@ import java.util.LinkedHashMap
 
 class SecurityRequirement : LinkedHashMap<String, List<String>>()
 
+class SecurityRequirements : ArrayList<SecurityRequirement>()

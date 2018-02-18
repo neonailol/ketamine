@@ -1,4 +1,4 @@
-package nnl.rocks.ketamine.openapi.models.servers
+package nnl.rocks.ketamine.models.servers
 
 /**
  * ServerVariable

@@ -1,11 +1,11 @@
 package nnl.rocks.ketamine.models
 
 import nnl.rocks.ketamine.models.callbacks.Callback
-import nnl.rocks.ketamine.openapi.models.parameters.Parameter
-import nnl.rocks.ketamine.openapi.models.parameters.RequestBody
-import nnl.rocks.ketamine.openapi.models.responses.ApiResponses
-import nnl.rocks.ketamine.openapi.models.security.SecurityRequirement
-import nnl.rocks.ketamine.openapi.models.servers.Server
+import nnl.rocks.ketamine.models.parameters.Parameter
+import nnl.rocks.ketamine.models.parameters.RequestBody
+import nnl.rocks.ketamine.models.responses.ApiResponses
+import nnl.rocks.ketamine.models.security.SecurityRequirement
+import nnl.rocks.ketamine.models.servers.Server
 
 /**
  * Operation

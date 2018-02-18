@@ -1,8 +1,8 @@
 package nnl.rocks.ketamine.models.headers
 
 import nnl.rocks.ketamine.models.examples.Example
-import nnl.rocks.ketamine.openapi.models.media.Content
-import nnl.rocks.ketamine.openapi.models.media.Schema
+import nnl.rocks.ketamine.models.media.Content
+import nnl.rocks.ketamine.models.media.Schema
 
 /**
  * Header

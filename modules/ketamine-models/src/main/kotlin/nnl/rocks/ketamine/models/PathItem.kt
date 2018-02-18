@@ -1,7 +1,7 @@
 package nnl.rocks.ketamine.models
 
-import nnl.rocks.ketamine.openapi.models.parameters.Parameter
-import nnl.rocks.ketamine.openapi.models.servers.Server
+import nnl.rocks.ketamine.models.parameters.Parameter
+import nnl.rocks.ketamine.models.servers.Server
 
 /**
  * PathItem

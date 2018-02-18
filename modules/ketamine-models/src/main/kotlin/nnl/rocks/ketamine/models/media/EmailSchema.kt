@@ -1,4 +1,4 @@
-package nnl.rocks.ketamine.openapi.models.media
+package nnl.rocks.ketamine.models.media
 
 /**
  * EmailSchema

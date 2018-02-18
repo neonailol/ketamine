@@ -1,7 +1,7 @@
-package nnl.rocks.ketamine.openapi.models.media
+package nnl.rocks.ketamine.models.media
 
+import nnl.rocks.ketamine.models.media.Schema
 import java.time.LocalDate
-import java.util.Date
 
 /**
  * DateSchema

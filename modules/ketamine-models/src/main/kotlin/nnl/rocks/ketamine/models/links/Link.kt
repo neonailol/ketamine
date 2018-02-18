@@ -1,8 +1,8 @@
 package nnl.rocks.ketamine.models.links
 
 import nnl.rocks.ketamine.models.headers.Header
-import nnl.rocks.ketamine.openapi.models.parameters.RequestBody
-import nnl.rocks.ketamine.openapi.models.servers.Server
+import nnl.rocks.ketamine.models.parameters.RequestBody
+import nnl.rocks.ketamine.models.servers.Server
 
 /**
  * Link

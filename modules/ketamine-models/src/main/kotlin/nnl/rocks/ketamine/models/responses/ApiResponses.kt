@@ -1,5 +1,6 @@
-package nnl.rocks.ketamine.openapi.models.responses
+package nnl.rocks.ketamine.models.responses
 
+import nnl.rocks.ketamine.models.responses.ApiResponse
 import java.util.LinkedHashMap
 
 /**

@@ -1,7 +1,6 @@
-package nnl.rocks.ketamine.openapi.models.media
+package nnl.rocks.ketamine.models.media
 
-import java.util.ArrayList
-import java.util.Objects
+import nnl.rocks.ketamine.models.media.Schema
 
 /**
  * StringSchema

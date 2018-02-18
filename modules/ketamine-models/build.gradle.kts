@@ -8,6 +8,7 @@ plugins {
 dependencies {
     compile(kotlin("stdlib-jdk8"))
     compile(kotlin("reflect"))
+    compile("io.arrow-kt:arrow-core:0.6.1")
     compile("com.fasterxml.jackson.core:jackson-core:2.9.4")
     compile("com.fasterxml.jackson.core:jackson-annotations:2.9.4")
     compile("com.fasterxml.jackson.core:jackson-databind:2.9.4")
