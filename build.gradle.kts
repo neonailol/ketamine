@@ -1,4 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.utils.addToStdlib.safeAs
+
+//TODO: Move to buildSrc
+inline fun <reified T : Any> Project.prop(name: String): T {
+    return project.property(name) as T
+}
+
+val projectVersion: String = project.prop("project.version")
 
 buildscript {
 
@@ -16,7 +24,7 @@ buildscript {
 allprojects {
 
     group = "nnl.rocks.ketamine"
-    version = "1.0-SNAPSHOT"
+    version = projectVersion
 
     repositories {
         mavenCentral()

@@ -2,10 +2,11 @@ package nnl.rocks.ketamine.models
 
 import arrow.core.None
 import arrow.core.Option
+import arrow.core.Some
 import nnl.rocks.ketamine.models.info.Info
+import nnl.rocks.ketamine.models.security.SecurityRequirements
 import nnl.rocks.ketamine.models.servers.Servers
 import nnl.rocks.ketamine.models.tags.Tags
-import nnl.rocks.ketamine.models.security.SecurityRequirements
 
 /**
  * Entry point for defining api
@@ -21,6 +22,8 @@ class Ketamine private constructor(
     private val components: Option<Components> = None,
     private val extensions: Option<Extensions> = None
 ) {
+
+    constructor(info: Info) : this(info = Some(info))
 
     enum class Version {
         DRAFT
