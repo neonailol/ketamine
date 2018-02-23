@@ -11,5 +11,6 @@ class Summary(
  * Detailed description in markdown format
  */
 class Description(
+    // language=Markdown
     private val value: String
 )
