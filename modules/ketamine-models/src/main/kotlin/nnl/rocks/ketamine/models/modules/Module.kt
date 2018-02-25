@@ -8,9 +8,9 @@ import nnl.rocks.ketamine.models.operations.Operations
  * Represents group of related functionality
  */
 class Module(
+    private val name: String,
     private val summary: Summary,
     private val description: Description,
     private val operations: Operations
 )
-
 

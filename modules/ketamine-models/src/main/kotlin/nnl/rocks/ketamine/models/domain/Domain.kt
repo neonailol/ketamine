@@ -3,14 +3,18 @@ package nnl.rocks.ketamine.models.domain
 /**
  * Brief summary
  */
-class Summary(
+open class Summary(
     private val value: String
 )
+
+class EmptySummary : Summary("")
 
 /**
  * Detailed description in markdown format
  */
-class Description(
+open class Description(
     // language=Markdown
     private val value: String
 )
+
+class EmptyDescription : Description("")
