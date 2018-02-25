@@ -5,4 +5,7 @@ package nnl.rocks.ketamine.models.modules
  */
 class Modules(
     private val modules: Collection<Module>
-) : Collection<Module> by modules
+) : Collection<Module> by modules {
+
+    constructor(vararg modules: Module) : this(modules.asList())
+}

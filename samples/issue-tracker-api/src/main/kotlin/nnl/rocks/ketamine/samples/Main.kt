@@ -18,21 +18,17 @@ fun main(args: Array<String>) {
             description = Description("production server")
         ),
         modules = Modules(
-            listOf(
-                Module(
-                    name = "",
-                    summary = Summary(""),
-                    description = Description(""),
-                    operations = Operations(
-                        listOf(
-                            Operation(
-                                name = "",
-                                summary = Summary(""),
-                                description = Description(""),
-                                method = HttpMethod.GET,
-                                path = Path("/issues")
-                            )
-                        )
+            Module(
+                name = "Issues",
+                summary = Summary("Provides api to read and modify issues"),
+                description = Description("""Need to put here some detailed text in _markdown_ formatting."""),
+                operations = Operations(
+                    Operation(
+                        name = "GetIssues",
+                        summary = Summary("Simple get all issues"),
+                        description = Description(""),
+                        method = HttpMethod.GET,
+                        path = Path("/issues")
                     )
                 )
             )

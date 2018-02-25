@@ -5,4 +5,7 @@ package nnl.rocks.ketamine.models.operations
  */
 class Operations(
     private val operations: Collection<Operation>
-) : Collection<Operation> by operations
+) : Collection<Operation> by operations {
+
+    constructor(vararg operations: Operation) : this(operations.asList())
+}
