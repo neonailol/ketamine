@@ -10,8 +10,33 @@ import nnl.rocks.ketamine.models.operations.Operations
 import nnl.rocks.ketamine.models.request.Path
 import nnl.rocks.ketamine.models.request.PathParam
 import nnl.rocks.ketamine.models.request.PathParams
+import nnl.rocks.ketamine.models.response.ResponseModel
+import nnl.rocks.ketamine.models.response.ResponseProperty
 import nnl.rocks.ketamine.models.servers.Server
+import nnl.rocks.ketamine.models.types.CollectionType
+import nnl.rocks.ketamine.models.types.ObjectType
+import nnl.rocks.ketamine.models.types.StringType
 import nnl.rocks.ketamine.models.types.UUIDType
+import nnl.rocks.ketamine.models.validation.NotBlank
+import nnl.rocks.ketamine.models.validation.NotEmpty
+import nnl.rocks.ketamine.models.validation.NotNull
+
+class Issue : ResponseModel(
+    ResponseProperty("id", UUIDType(), NotNull()),
+    ResponseProperty("title", StringType(), NotBlank())
+)
+
+class Issues : ResponseModel(
+    ResponseProperty(
+        "elements",
+        CollectionType(
+            ObjectType(
+                ResponseProperty("id", UUIDType(), NotNull()),
+                ResponseProperty("title", StringType(), NotEmpty())
+            )
+        )
+    )
+)
 
 fun main(args: Array<String>) {
     val ketamine = Ketamine(
@@ -29,7 +54,8 @@ fun main(args: Array<String>) {
                         name = "GetIssues",
                         summary = Summary("Get all issues"),
                         description = Description(""),
-                        path = Path("/issues")
+                        path = Path("/issues"),
+                        response = Issues()
                     ),
                     GetOperation(
                         name = "GetIssue",
@@ -43,7 +69,8 @@ fun main(args: Array<String>) {
                                     type = UUIDType()
                                 )
                             )
-                        )
+                        ),
+                        response = Issue()
                     )
                 )
             )

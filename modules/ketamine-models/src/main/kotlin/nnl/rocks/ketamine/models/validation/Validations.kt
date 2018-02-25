@@ -9,3 +9,5 @@ open class Validation
 class NotNull : Validation()
 
 class NotEmpty : Validation()
+
+class NotBlank : Validation()
