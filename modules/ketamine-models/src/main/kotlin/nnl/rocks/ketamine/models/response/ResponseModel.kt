@@ -4,13 +4,16 @@ import nnl.rocks.ketamine.models.domain.Description
 import nnl.rocks.ketamine.models.domain.EmptyDescription
 import nnl.rocks.ketamine.models.domain.EmptySummary
 import nnl.rocks.ketamine.models.domain.Summary
+import nnl.rocks.ketamine.models.headers.Header
 import nnl.rocks.ketamine.models.types.ValueType
 import nnl.rocks.ketamine.models.validation.Validations
 
-class ResponseModel(
-    private val props: List<ResponseProperty>
-
+open class ResponseModel(
+    private val headers: Collection<Header>,
+    private val props: Collection<ResponseProperty>
 )
+
+class EmptyResponse : ResponseModel(emptyList(), emptyList())
 
 class ResponseProperty(
     private val name: String,

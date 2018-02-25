@@ -7,9 +7,11 @@ import nnl.rocks.ketamine.models.domain.Summary
 import nnl.rocks.ketamine.models.types.ValueType
 import nnl.rocks.ketamine.models.validation.Validations
 
-class RequestModel(
+open class RequestModel(
     private val props: List<RequestProperty>
 )
+
+class EmptyRequest : RequestModel(emptyList())
 
 class RequestProperty(
     private val name: String,
