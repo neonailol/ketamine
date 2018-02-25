@@ -9,6 +9,7 @@ import nnl.rocks.ketamine.models.request.EmptyQueryParams
 import nnl.rocks.ketamine.models.request.Path
 import nnl.rocks.ketamine.models.request.QueryParams
 import nnl.rocks.ketamine.models.request.RequestModel
+import nnl.rocks.ketamine.models.response.ResponseModel
 
 /**
  * Represents an atomic rest request
@@ -20,5 +21,6 @@ class Operation(
     private val method: HttpMethod,
     private val path: Path,
     private val query: QueryParams = EmptyQueryParams(),
-    private val request: RequestModel
+    private val request: RequestModel,
+    private val response: ResponseModel
 )
