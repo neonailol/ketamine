@@ -6,10 +6,8 @@ enum class HttpMethod {
     POST,
     PUT,
     DELETE,
-    CONNECT,
     OPTIONS,
-    TRACE,
-    PATH
+    PATH;
 }
 
 enum class HttpStatus(private val value: Int) {
