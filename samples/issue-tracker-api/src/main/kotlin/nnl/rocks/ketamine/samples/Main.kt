@@ -8,7 +8,10 @@ import nnl.rocks.ketamine.models.modules.Modules
 import nnl.rocks.ketamine.models.operations.GetOperation
 import nnl.rocks.ketamine.models.operations.Operations
 import nnl.rocks.ketamine.models.request.Path
+import nnl.rocks.ketamine.models.request.PathParam
+import nnl.rocks.ketamine.models.request.PathParams
 import nnl.rocks.ketamine.models.servers.Server
+import nnl.rocks.ketamine.models.types.UUIDType
 
 fun main(args: Array<String>) {
     val ketamine = Ketamine(
@@ -24,9 +27,23 @@ fun main(args: Array<String>) {
                 operations = Operations(
                     GetOperation(
                         name = "GetIssues",
-                        summary = Summary("Simple get all issues"),
+                        summary = Summary("Get all issues"),
                         description = Description(""),
                         path = Path("/issues")
+                    ),
+                    GetOperation(
+                        name = "GetIssue",
+                        summary = Summary("Get issue by id"),
+                        description = Description(""),
+                        path = Path(
+                            value = "/issues/{id}",
+                            params = PathParams(
+                                PathParam(
+                                    name = "id",
+                                    type = UUIDType()
+                                )
+                            )
+                        )
                     )
                 )
             )

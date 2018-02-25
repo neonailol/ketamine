@@ -13,7 +13,10 @@ class Path(
 
 open class PathParams(
     private val params: Collection<PathParam>
-) : Collection<PathParam> by params
+) : Collection<PathParam> by params {
+
+    constructor(vararg params: PathParam) : this(params.toList())
+}
 
 class EmptyPathParams : PathParams(emptyList())
 
