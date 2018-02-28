@@ -2,7 +2,10 @@ package nnl.rocks.ketamine.models.validation
 
 class Validations(
     private val props: Collection<Validation>
-)
+) {
+
+    constructor(vararg props: Validation) : this(props.toList())
+}
 
 open class Validation
 

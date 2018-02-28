@@ -1,6 +1,5 @@
 package nnl.rocks.ketamine.models.types
 
-
 open class ValueType(
     private val type: String,
     private val format: String
@@ -22,3 +21,8 @@ class UUIDType : ValueType(type = "string", format = "uuid")
 class CollectionType(
     private val element: ValueType
 ) : ValueType(type = "collection", format = "array")
+
+/**
+ * This type will be replaced with it's content from [ModelProperties]
+ */
+class AggregateType : ValueType(type = "aggregate", format = "array")

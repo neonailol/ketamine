@@ -7,7 +7,7 @@ import nnl.rocks.ketamine.models.domain.Summary
 import nnl.rocks.ketamine.models.validation.Validation
 import nnl.rocks.ketamine.models.validation.Validations
 
-class ModelProperty(
+open class ModelProperty(
     private val name: String,
     private val type: ValueType,
     private val summary: Summary = EmptySummary(),
@@ -26,4 +26,14 @@ class ModelProperty(
         description = EmptyDescription(),
         validations = Validations(validations.toList())
     )
+}
+
+/**
+ * This property will be replaced with it [props] in resulting model
+ */
+open class ModelProperties(
+    private val props: Collection<ModelProperty>
+) : ModelProperty("aggregate", AggregateType()) {
+
+    constructor(vararg props: ModelProperty) : this(props.toList())
 }

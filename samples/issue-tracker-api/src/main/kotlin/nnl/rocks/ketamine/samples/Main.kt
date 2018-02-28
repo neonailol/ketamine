@@ -2,6 +2,8 @@ package nnl.rocks.ketamine.samples
 
 import nnl.rocks.ketamine.models.Ketamine
 import nnl.rocks.ketamine.models.domain.Description
+import nnl.rocks.ketamine.models.domain.EmptyDescription
+import nnl.rocks.ketamine.models.domain.EmptySummary
 import nnl.rocks.ketamine.models.domain.Summary
 import nnl.rocks.ketamine.models.modules.Module
 import nnl.rocks.ketamine.models.modules.Modules
@@ -13,16 +15,31 @@ import nnl.rocks.ketamine.models.request.PathParams
 import nnl.rocks.ketamine.models.response.ResponseModel
 import nnl.rocks.ketamine.models.servers.Server
 import nnl.rocks.ketamine.models.types.CollectionType
+import nnl.rocks.ketamine.models.types.ModelProperties
 import nnl.rocks.ketamine.models.types.ModelProperty
 import nnl.rocks.ketamine.models.types.ObjectType
 import nnl.rocks.ketamine.models.types.StringType
 import nnl.rocks.ketamine.models.types.UUIDType
 import nnl.rocks.ketamine.models.validation.NotBlank
 import nnl.rocks.ketamine.models.validation.NotNull
+import nnl.rocks.ketamine.models.validation.Validations
+
+open class Identifiable : ModelProperty(
+    name = "id",
+    type = UUIDType(),
+    summary = EmptySummary(),
+    description = EmptyDescription(),
+    validations = Validations(NotNull())
+)
+
+class IssueCommon : ModelProperties(
+    Identifiable(),
+    ModelProperty("title", StringType(), NotBlank())
+)
 
 class Issue : ResponseModel(
-    ModelProperty("id", UUIDType(), NotNull()),
-    ModelProperty("title", StringType(), NotBlank())
+    IssueCommon(),
+    ModelProperty("author", UUIDType(), NotNull())
 )
 
 class Issues : ResponseModel(
@@ -30,8 +47,7 @@ class Issues : ResponseModel(
         "elements",
         CollectionType(
             ObjectType(
-                ModelProperty("id", UUIDType(), NotNull()),
-                ModelProperty("title", StringType(), NotBlank())
+                IssueCommon()
             )
         )
     )
