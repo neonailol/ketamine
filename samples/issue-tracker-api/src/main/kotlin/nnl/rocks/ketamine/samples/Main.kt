@@ -4,14 +4,18 @@ import nnl.rocks.ketamine.models.Ketamine
 import nnl.rocks.ketamine.models.domain.Description
 import nnl.rocks.ketamine.models.domain.EmptyDescription
 import nnl.rocks.ketamine.models.domain.EmptySummary
+import nnl.rocks.ketamine.models.domain.HttpHeader
 import nnl.rocks.ketamine.models.domain.Summary
+import nnl.rocks.ketamine.models.headers.Header
 import nnl.rocks.ketamine.models.modules.Module
 import nnl.rocks.ketamine.models.modules.Modules
 import nnl.rocks.ketamine.models.operations.GetOperation
 import nnl.rocks.ketamine.models.operations.Operations
+import nnl.rocks.ketamine.models.operations.PostOperation
 import nnl.rocks.ketamine.models.request.Path
 import nnl.rocks.ketamine.models.request.PathParam
 import nnl.rocks.ketamine.models.request.PathParams
+import nnl.rocks.ketamine.models.request.RequestModel
 import nnl.rocks.ketamine.models.response.ResponseModel
 import nnl.rocks.ketamine.models.servers.Server
 import nnl.rocks.ketamine.models.types.CollectionType
@@ -39,7 +43,8 @@ class IssueCommon : ModelProperties(
 
 class Issue : ResponseModel(
     IssueCommon(),
-    ModelProperty("author", UUIDType(), NotNull())
+    ModelProperty("author", UUIDType(), NotNull()),
+    ModelProperty("description", StringType(), NotBlank())
 )
 
 class Issues : ResponseModel(
@@ -51,6 +56,33 @@ class Issues : ResponseModel(
             )
         )
     )
+)
+
+class CreateIssueCommand : RequestModel(
+    ModelProperty(
+        name = "title",
+        type = StringType(),
+        summary = EmptySummary(),
+        description = EmptyDescription(),
+        validations = Validations(NotBlank())
+    ),
+    ModelProperty(
+        name = "description",
+        type = StringType(),
+        summary = EmptySummary(),
+        description = EmptyDescription(),
+        validations = Validations(NotBlank())
+    )
+)
+
+class LocationResponse : ResponseModel(
+    headers = listOf(
+        Header(
+            header = HttpHeader.LOCATION,
+            type = UUIDType()
+        )
+    ),
+    props = emptyList()
 )
 
 fun main(args: Array<String>) {
@@ -86,6 +118,14 @@ fun main(args: Array<String>) {
                             )
                         ),
                         response = Issue()
+                    ),
+                    PostOperation(
+                        name = "NewIssue",
+                        summary = Summary("Create new issue"),
+                        description = Description(""),
+                        path = Path("/issues"),
+                        request = CreateIssueCommand(),
+                        response = LocationResponse()
                     )
                 )
             )
