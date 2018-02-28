@@ -11,28 +11,27 @@ import nnl.rocks.ketamine.models.request.Path
 import nnl.rocks.ketamine.models.request.PathParam
 import nnl.rocks.ketamine.models.request.PathParams
 import nnl.rocks.ketamine.models.response.ResponseModel
-import nnl.rocks.ketamine.models.response.ResponseProperty
 import nnl.rocks.ketamine.models.servers.Server
 import nnl.rocks.ketamine.models.types.CollectionType
+import nnl.rocks.ketamine.models.types.ModelProperty
 import nnl.rocks.ketamine.models.types.ObjectType
 import nnl.rocks.ketamine.models.types.StringType
 import nnl.rocks.ketamine.models.types.UUIDType
 import nnl.rocks.ketamine.models.validation.NotBlank
-import nnl.rocks.ketamine.models.validation.NotEmpty
 import nnl.rocks.ketamine.models.validation.NotNull
 
 class Issue : ResponseModel(
-    ResponseProperty("id", UUIDType(), NotNull()),
-    ResponseProperty("title", StringType(), NotBlank())
+    ModelProperty("id", UUIDType(), NotNull()),
+    ModelProperty("title", StringType(), NotBlank())
 )
 
 class Issues : ResponseModel(
-    ResponseProperty(
+    ModelProperty(
         "elements",
         CollectionType(
             ObjectType(
-                ResponseProperty("id", UUIDType(), NotNull()),
-                ResponseProperty("title", StringType(), NotEmpty())
+                ModelProperty("id", UUIDType(), NotNull()),
+                ModelProperty("title", StringType(), NotBlank())
             )
         )
     )

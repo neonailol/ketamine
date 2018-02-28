@@ -1,6 +1,5 @@
 package nnl.rocks.ketamine.models.types
 
-import nnl.rocks.ketamine.models.response.ResponseProperty
 
 open class ValueType(
     private val type: String,
@@ -8,10 +7,10 @@ open class ValueType(
 )
 
 class ObjectType(
-    private val props: Collection<ResponseProperty>
+    private val props: Collection<ModelProperty>
 ) : ValueType(type = "object", format = "model") {
 
-    constructor(vararg props: ResponseProperty) : this(
+    constructor(vararg props: ModelProperty) : this(
         props.toList()
     )
 }
