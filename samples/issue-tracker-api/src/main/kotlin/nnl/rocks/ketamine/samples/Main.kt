@@ -12,6 +12,7 @@ import nnl.rocks.ketamine.models.modules.Modules
 import nnl.rocks.ketamine.models.operations.GetOperation
 import nnl.rocks.ketamine.models.operations.Operations
 import nnl.rocks.ketamine.models.operations.PostOperation
+import nnl.rocks.ketamine.models.operations.PutOperation
 import nnl.rocks.ketamine.models.request.Path
 import nnl.rocks.ketamine.models.request.PathParam
 import nnl.rocks.ketamine.models.request.PathParams
@@ -75,6 +76,23 @@ class CreateIssueCommand : RequestModel(
     )
 )
 
+class EditIssueCommand : RequestModel(
+    ModelProperty(
+        name = "title",
+        type = StringType(),
+        summary = EmptySummary(),
+        description = EmptyDescription(),
+        validations = Validations(NotBlank())
+    ),
+    ModelProperty(
+        name = "description",
+        type = StringType(),
+        summary = EmptySummary(),
+        description = EmptyDescription(),
+        validations = Validations(NotBlank())
+    )
+)
+
 class LocationResponse : ResponseModel(
     headers = listOf(
         Header(
@@ -83,6 +101,18 @@ class LocationResponse : ResponseModel(
         )
     ),
     props = emptyList()
+)
+
+class IdPath(
+    path: String
+) : Path(
+    value = "/$path/{id}",
+    params = PathParams(
+        PathParam(
+            name = "id",
+            type = UUIDType()
+        )
+    )
 )
 
 fun main(args: Array<String>) {
@@ -108,15 +138,7 @@ fun main(args: Array<String>) {
                         name = "GetIssue",
                         summary = Summary("Get issue by id"),
                         description = Description(""),
-                        path = Path(
-                            value = "/issues/{id}",
-                            params = PathParams(
-                                PathParam(
-                                    name = "id",
-                                    type = UUIDType()
-                                )
-                            )
-                        ),
+                        path = IdPath("issues"),
                         response = Issue()
                     ),
                     PostOperation(
@@ -126,6 +148,13 @@ fun main(args: Array<String>) {
                         path = Path("/issues"),
                         request = CreateIssueCommand(),
                         response = LocationResponse()
+                    ),
+                    PutOperation(
+                        name = "EditIssue",
+                        summary = Summary("Edit existing issue"),
+                        description = Description(""),
+                        path = IdPath("issues"),
+                        request = EditIssueCommand()
                     )
                 )
             )

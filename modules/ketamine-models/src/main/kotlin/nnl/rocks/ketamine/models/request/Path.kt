@@ -6,7 +6,7 @@ import nnl.rocks.ketamine.models.domain.EmptySummary
 import nnl.rocks.ketamine.models.domain.Summary
 import nnl.rocks.ketamine.models.types.ValueType
 
-class Path(
+open class Path(
     private val value: String,
     private val params: PathParams = EmptyPathParams()
 )
