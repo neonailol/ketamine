@@ -5,6 +5,7 @@ import nnl.rocks.ketamine.models.domain.Description
 import nnl.rocks.ketamine.models.domain.EmptyDescription
 import nnl.rocks.ketamine.models.domain.EmptySummary
 import nnl.rocks.ketamine.models.domain.HttpHeader
+import nnl.rocks.ketamine.models.domain.HttpStatus
 import nnl.rocks.ketamine.models.domain.Summary
 import nnl.rocks.ketamine.models.headers.Header
 import nnl.rocks.ketamine.models.modules.Module
@@ -93,14 +94,15 @@ class EditIssueCommand : RequestModel(
     )
 )
 
-class LocationResponse : ResponseModel(
+class CreationResponse : ResponseModel(
     headers = listOf(
         Header(
             header = HttpHeader.LOCATION,
             type = UUIDType()
         )
     ),
-    props = emptyList()
+    props = emptyList(),
+    status = HttpStatus.CREATED
 )
 
 class IdPath(
@@ -147,7 +149,7 @@ fun main(args: Array<String>) {
                         description = Description(""),
                         path = Path("/issues"),
                         request = CreateIssueCommand(),
-                        response = LocationResponse()
+                        response = CreationResponse()
                     ),
                     PutOperation(
                         name = "EditIssue",

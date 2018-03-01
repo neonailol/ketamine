@@ -4,6 +4,7 @@ import nnl.rocks.ketamine.models.domain.Description
 import nnl.rocks.ketamine.models.domain.EmptyDescription
 import nnl.rocks.ketamine.models.domain.EmptySummary
 import nnl.rocks.ketamine.models.domain.HttpMethod
+import nnl.rocks.ketamine.models.domain.HttpStatus
 import nnl.rocks.ketamine.models.domain.Summary
 import nnl.rocks.ketamine.models.request.EmptyQueryParams
 import nnl.rocks.ketamine.models.request.EmptyRequest
@@ -77,7 +78,7 @@ class PutOperation(
     path = path,
     query = EmptyQueryParams(),
     request = request,
-    response = EmptyResponse()
+    response = ResponseModel(emptyList(), emptyList(), HttpStatus.ACCEPTED)
 )
 
 class PathOperation(
@@ -94,7 +95,7 @@ class PathOperation(
     path = path,
     query = EmptyQueryParams(),
     request = request,
-    response = EmptyResponse()
+    response = ResponseModel(emptyList(), emptyList(), HttpStatus.ACCEPTED)
 )
 
 class DeleteOperation(
@@ -110,7 +111,7 @@ class DeleteOperation(
     path = path,
     query = EmptyQueryParams(),
     request = EmptyRequest(),
-    response = EmptyResponse()
+    response = ResponseModel(emptyList(), emptyList(), HttpStatus.NO_CONTENT)
 )
 
 class OptionsOperation(
