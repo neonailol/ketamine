@@ -1,12 +1,7 @@
 package nnl.rocks.ketamine.samples
 
 import nnl.rocks.ketamine.models.Ketamine
-import nnl.rocks.ketamine.models.domain.Description
-import nnl.rocks.ketamine.models.domain.EmptyDescription
-import nnl.rocks.ketamine.models.domain.EmptySummary
-import nnl.rocks.ketamine.models.domain.HttpHeader
-import nnl.rocks.ketamine.models.domain.HttpStatus
-import nnl.rocks.ketamine.models.domain.Summary
+import nnl.rocks.ketamine.models.domain.*
 import nnl.rocks.ketamine.models.headers.Header
 import nnl.rocks.ketamine.models.modules.Module
 import nnl.rocks.ketamine.models.modules.Modules
@@ -20,12 +15,7 @@ import nnl.rocks.ketamine.models.request.PathParams
 import nnl.rocks.ketamine.models.request.RequestModel
 import nnl.rocks.ketamine.models.response.ResponseModel
 import nnl.rocks.ketamine.models.servers.Server
-import nnl.rocks.ketamine.models.types.CollectionType
-import nnl.rocks.ketamine.models.types.ModelProperties
-import nnl.rocks.ketamine.models.types.ModelProperty
-import nnl.rocks.ketamine.models.types.ObjectType
-import nnl.rocks.ketamine.models.types.StringType
-import nnl.rocks.ketamine.models.types.UUIDType
+import nnl.rocks.ketamine.models.types.*
 import nnl.rocks.ketamine.models.validation.NotBlank
 import nnl.rocks.ketamine.models.validation.NotNull
 import nnl.rocks.ketamine.models.validation.Validations

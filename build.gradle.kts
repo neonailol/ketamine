@@ -1,10 +1,6 @@
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.utils.addToStdlib.safeAs
-
-//TODO: Move to buildSrc
-inline fun <reified T : Any> Project.prop(name: String): T {
-    return project.property(name) as T
-}
 
 val projectVersion: String = project.prop("project.version")
 
@@ -17,7 +13,7 @@ buildscript {
     }
 
     dependencies {
-        classpath(kotlin("gradle-plugin", "1.2.30"))
+        classpath(kotlin("gradle-plugin", "1.2.31"))
     }
 }
 
@@ -35,6 +31,8 @@ allprojects {
 
 plugins {
     base
+    maven
+    id("com.github.ben-manes.versions") version "0.17.0"
 }
 
 tasks {
@@ -52,4 +50,9 @@ dependencies {
     subprojects.forEach {
         archives(it)
     }
+}
+
+tasks.withType<Wrapper> {
+    distributionType = Wrapper.DistributionType.ALL
+    gradleVersion = "4.6"
 }

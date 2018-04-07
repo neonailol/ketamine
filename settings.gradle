@@ -1,4 +1,0 @@
-rootProject.name = 'ketamine'
-
-include 'modules:ketamine-models'
-include 'samples:issue-tracker-api'
